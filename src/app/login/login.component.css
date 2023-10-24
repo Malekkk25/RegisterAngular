@@ -1,0 +1,12 @@
+#top-container {
+    margin-top: -500px; /* Adjust the margin value to move the container up or down as needed */
+}
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }

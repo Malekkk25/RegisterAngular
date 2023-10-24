@@ -1,0 +1,26 @@
+<div class="container" id="top-container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Username </th><th>Email</th><th>Roles</th><th>Update Role</th></tr>
+    <tbody *ngFor="let user of users">
+    <tr >
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>
+        <span *ngFor="let role of user.roles; let last = last">
+          {{ role.role }}
+          <span *ngIf="!last">, </span>
+        </span>
+      </td>
+      <td>
+        <a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateRole', user.username]">Update Role</a>
+      </td>
+      
+    </tr>
+    </tbody>
+    
+    </table>
+    </div>
+    </div>
+    </div>

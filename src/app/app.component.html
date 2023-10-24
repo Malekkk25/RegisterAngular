@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<title>Gestion des Vols</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+<!-- Brand -->
+<a class="navbar-brand" href="#">Find Your Flight</a>
+<!-- Links -->
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" *ngIf="authService.isloggedIn" routerLink="/vols">Home</a>
+      </li>
+<!-- Dropdown -->
+<li class="nav-item dropdown" *ngIf="authService.isloggedIn">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Flights</a>
+    <div class="dropdown-menu">
+      <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="add-produit">Add a Flight</a>
+      <a class="dropdown-item" routerLink="/rechercheParAeroport">Search By Airport</a>
+      <a class="dropdown-item" routerLink="/rechercheParDestination">Search By Destination</a>
+      <a class="dropdown-item" routerLink="/listeAeroports">Airport Management</a>
+    </div>
+  </li>
+
+  <li class="nav-item dropdown" *ngIf="authService.isloggedIn">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Users</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="users">List users</a>
+    </div>
+  </li>
+
+</ul>
+<ul class="navbar-nav ml-auto" >
+    <li> <a class="nav-link">{{authService.loggedUser}}</a></li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+Sign In
+</a>
+<div class="dropdown-menu">
+    <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a>
+    <a *ngIf="authService.isloggedIn" class="dropdown-item" (click) = "onLogout()">logout</a>
+<a class="dropdown-item" href="#">Profile</a>
+</div>
+</li>
+</ul>
+</nav>
+</body>
+</html>
+<router-outlet></router-outlet>

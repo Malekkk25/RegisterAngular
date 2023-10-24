@@ -1,0 +1,38 @@
+<div class="container" id="top-container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Flight Destination  :</label>
+        <input #destination [(ngModel)]="searchTerm" name="searchTerm" class="form-control" (keyup)="onKeyUp(searchTerm)" />
+        </div>
+        </form>
+
+</div>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <table class="table table-striped">
+            <tr>
+                <th>Agency</th>
+                <th>Flight Number</th>
+                <th>Departure Time</th>
+                <th>Destination</th>
+                <th>State</th>
+                <th>Airport</th>
+            </tr>
+            <tbody *ngFor="let vol of vols  ">
+                <tr>
+                    <td>{{vol.agence}}</td>
+                    <td>{{vol.numVol}}</td>
+                    <td>{{vol.heureDepart | date:'shortTime' }} </td>
+                    <td>{{vol.destination}}</td>
+                    <td ><div *ngIf="vol.etat=='Landed'" ><a class="btn btn-success" >{{vol.etat}} </a></div>
+                        <div *ngIf="vol.etat=='Canceled'" ><a class="btn btn-danger" >{{vol.etat}} </a></div>
+                        <div *ngIf="vol.etat=='At the Boarding Gate'" ><a class="btn btn-warning" >{{vol.etat}} </a></div>
+                    </td>
+                    <td>{{vol.aeroport.nomAir}}</td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

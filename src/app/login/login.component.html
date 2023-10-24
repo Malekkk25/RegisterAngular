@@ -1,0 +1,39 @@
+<div class="container" id="top-container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-4">
+        <img
+        id="profile-img"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+        
+      />
+        <div class="alert alert-danger" *ngIf="erreur == 1">
+          <strong>login ou mot de passe erronés..</strong>
+        </div>
+        <div class="alert alert-danger" *ngIf="err == 1">
+          <strong>login ou mot de passe erronés..</strong>
+        </div>
+  
+        <form>
+          <div class="form-group">
+            <label>Username :</label>
+            <input type="text" name="username" class="form-control" [(ngModel)]="user.username">
+          </div>
+          <div class="form-group">
+            <label>Password :</label>
+            <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
+          </div>
+          <div class="mt-3" >
+            <a [routerLink]="['/register']">Create a new account</a>
+          </div>
+        <br>
+          <div class="row justify-content-md-center">
+            <button type="button" (click)="onLoggedin()" class="btn btn-success">Connexion</button>
+            
+            
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

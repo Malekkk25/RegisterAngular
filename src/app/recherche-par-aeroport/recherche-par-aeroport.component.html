@@ -1,0 +1,32 @@
+<div class="container" id="top-container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Airports </label>
+        <select class="form-control form-control-lg" id="idAir" name="idAir" [(ngModel)]="IdAeroport" (change)="onChange()">
+        <option *ngFor="let air of aeroports" value="{{air.idAir}}">
+        {{air.nomAir}}
+         </option>
+        </select>
+    </div>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Agency</th><th>Flight Number</th><th>Departure Time</th> <th>Destination</th> <th>state</th> <th>Airport</th></tr>
+    <tbody *ngFor="let vol of vols">
+    <tr >
+    <td>{{vol.agence}}</td>
+    <td>{{vol.numVol}}</td>
+    <td>{{vol.heureDepart | date:'shortTime' }}  </td>
+    <td>{{vol.destination}}</td>
+    <td ><div *ngIf="vol.etat=='Landed'" ><a class="btn btn-success" >{{vol.etat}} </a></div>
+        <div *ngIf="vol.etat=='Canceled'" ><a class="btn btn-danger" >{{vol.etat}} </a></div>
+        <div *ngIf="vol.etat=='At the Boarding Gate'" ><a class="btn btn-warning" >{{vol.etat}} </a></div>
+    </td>
+    <td>{{vol.aeroport.nomAir}}</td>
+   
+    </tr>
+    </tbody>
+    
+    </table>
+    </div>
+    </div>
+    </div>

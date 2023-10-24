@@ -1,0 +1,23 @@
+<form id="top-container">
+    <div  [hidden]="ajout">
+        <label>ID Aéroport</label>
+        <input type="text" [readOnly]="!ajout" [(ngModel)]="aeroport.idAir" name="idAeroport" class="form-control w-25">
+        </div>
+    <div>
+    <label>Nom Aéroport</label>
+    <input type="text" [(ngModel)]="aeroport.nomAir" name="nomAeroport" class="form-control"
+    placeholder="Entrez un nom de aéroport...">
+    </div>
+    <div>
+    <label>Adresse Aéroport</label>
+    <input type="text" [(ngModel)]="aeroport.adresseAir" name="adresseAeroport" class="form-control"
+    placeholder="Entrez un nom de aéroport...">
+    </div>
+    
+    <div class="mt-2">
+        <button type="submit" [disabled]="!aeroport.nomAir" class="btn btn-success"
+        (click)="saveAeroport()" >{{ ajout ? 'Ajouter' : 'Modifier'}}
+        </button>
+    </div>
+    
+    </form>

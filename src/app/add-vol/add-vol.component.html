@@ -1,0 +1,60 @@
+<div class="container" id="top-container">
+    <div>
+    <h2> Add a Flight :</h2>
+    </div>
+    
+    
+    <form >
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        
+            <label >Agency</label>
+            <input type="text"
+             [(ngModel)]="newVol.agence" 
+             name="agence" 
+             class="form-control">
+            </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+
+    <label >Flight Number</label>
+    <input type="text" [(ngModel)]="newVol.numVol"name="idVol" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Departure Time</label>
+    <input type="datetime-local"[(ngModel)]= "newVol.heureDepart" name="Depart" class="form-control">
+    </div>
+    
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Destination</label>
+    <input type="text" [(ngModel)]= "newVol.destination" name="destination" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>State</label>
+        <select [(ngModel)]="newVol.etat" name="etat" class="form-control">
+            <option value="Canceled">Canceled</option>
+            <option value="Landed">Landed</option>
+            <option value="At the Boarding Gate">At the Boarding Gate</option>
+        </select>
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Aeroport</label>
+        <select class="form-control form-control-lg" id="idAir" name="idAir" [(ngModel)]="newIdAir">
+        <option *ngFor="let airs of aeroports" [value]="airs.idAir" >{{airs.nomAir}}</option>
+        </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)"
+            name="logo" class="form-control">
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+            </div>
+            
+    <div class="mt-2">
+    <button type="submit" (click)="addVol()"class="btn btn-success">Add Flight</button>
+    </div>
+    </form>
+    
+    </div>
